@@ -8,27 +8,31 @@
 
 import Foundation
 
-
-while true{
-
-var randomnumber = arc4random_uniform(100)
-
+while true {
+var randomNumber = Int(arc4random_uniform(100))
+var guess: Int?
 print("guess a number 0-100" )
-    var a = readLine()!
-
-var b = Int(a)!
-
-    if b == randomnumber{
-        print("you got it correct, do you wanna play again y/n ")
-    var c = readLine()!
+while  true {
+    guess = Int(readLine()!)!
+if randomNumber == guess! {
+var yes : 
+    print("you got it right, do you wannna play agian \(yes)/no")
+    
+    
+    
+    
+} else if guess! > randomNumber {
+        print(" ooooooooo try again, your number is greater than the random number ,guess again")
+    } else if guess! < randomNumber {
+        print(" ooooooo try again, your number is less than the random number, guess again  ")
+        
         
     }
-        
-    else if b != randomnumber{
-        print("ooooo try again")
-        
-        
-    }
+
+
+
+}
+}
     
     
     //if correct ask if they want to play again
@@ -44,4 +48,4 @@ var b = Int(a)!
     
     
     
-]
+
