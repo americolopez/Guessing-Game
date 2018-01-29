@@ -7,89 +7,65 @@
 //
 
 import Foundation
-
+var doNotWannaPlay: String = "No"
 var playAgain: String = "yes"
+print("""
+
+⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️
+⭐️welcome to the guessing game❗️❗️⭐️
+⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️
+you have 5 guess, Good luck !!
+""")
 while playAgain.lowercased() == "yes" {
     var randomNumber = Int(arc4random_uniform(100))
     var guess: Int?
-    var tries: Int = 1
-    print("welcome to the guessing game!! This was a pain to make so don't break it!!! You 🤬🤬!!!  ")
-    
-    
-    
-    
-    print("guess a number 1-100")
+    var tries: Int = 2
+    print("guess a number 1-100, the number of tries 1/5")
     guess = Int(readLine()!)
-    while  guess! > 101 || guess! < 0 || guess == nil {
-        print("Guess again!")
+    while guess == nil ||  guess! >= 101 || guess! <= -1 {
         guess = Int(readLine()!)
     }
     
-   while randomNumber != guess && tries <= 5 {
-        
-        
-        
-        if randomNumber == guess! {
-            print("you got it right")
-        }
-            
-            
-            
-            
-        else if guess! > randomNumber  {
-            print("you didn't get it right😂😂😂,your number is greater than the random number ,guess again , your number of tries \(tries)")
+    while randomNumber != guess && tries <= 5 {
+        if guess! > randomNumber  {
+            print("you got it wrong😂😂😂,your number is greater than the random number ,guess again , the number of tries used \(tries)/5")
             guess = Int(readLine()!)
-            while guess == nil {
-                print("Guess again!")
+            while guess == nil ||  guess! >= 101 || guess! <= -1 {
+                print("just Guess a number 1-100!‼️ 😡😡")
                 guess = Int(readLine()!)
             }
-            while guess! > 100{
-                print("guess between 0-100")
-                guess = Int(readLine()!)
-            }
-            while guess! < 0{
-                print("guess between 0-100")
-                guess = Int(readLine()!)}
             tries = tries + 1
         }
-            
-            
-            
         else if guess! < randomNumber  {
-            print("you didn't get it right😂😂😂,your number is less than the random number, guess again , your number of tries \(tries)  ")
+            print("you got it wrong😂😂😂,your number is less than the random number, guess again , the number of tries used \(tries)/5  ")
             guess = Int(readLine()!)
-            while guess == nil {
-                print("Guess again!")
+            while guess == nil ||  guess! >= 101 || guess! <= 1 {
+                print("just Guess a number 1-100‼️ 😡😡")
                 guess = Int(readLine()!)
             }
-            while guess! > 100{
-                print("guess between 0-100")
-                guess = Int(readLine()!)}
+            tries = tries + 1
         }
-        while guess! < 0{
-            print("guess between 0-100")
-            guess = Int(readLine()!)}
-        tries = tries + 1
+        if tries > 5 {
+            print("you have ran out of tries , you suck at this 😂😂😂")
+            print(" your number was \(randomNumber)")
+        }
     }
-    
-    
-    
-    
-    if tries > 5 {
-        print("you have ran out of tries , you suck at this 😂😂😂")
-        print(" your number was \(randomNumber)")
+    if guess == randomNumber{
+        print("""
+🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
+🎉 you got it right‼️‼️🎉
+🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
+""")
     }
-    
-    
-    
-    
     print("do you wanna play again yes / no ")
-    playAgain = readLine()!
+    playAgain = readLine()!.lowercased()
+    while playAgain != "yes" && playAgain != "no"{
+        print("say yes or no ")
+        playAgain = readLine()!.lowercased()
+    }
+    
+    
 }
-
-
-
-
 
 
 
